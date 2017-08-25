@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Sarahah++</title>
+<meta name="author" content="Neel Kadia">
+<meta name="description" content="Filtering truly constuative anonymous feedbacks by Sentiment analysis">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Merriweather:400,400italic,700|Source+Code+Pro" rel="stylesheet">
+<link href="style1.css" rel="stylesheet">
+<link rel="icon" href="favicon.png">
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src="css/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+</head>
+<body class="">
+  <section id="mainsec" class="container px1 py1">
+    <div class="measure">
+      <header class="mb2">
+        <h1 class="">Sarahah++</h1>
+        <!-- <h2 class="h4 caps regular">My location in realtime, Publicly available.</h2> -->
+        <p  class="f5 mid-gray">Filtering truly constuative feedbacks by Sentiment analysis using natural language processing</p>
+      </header>
+      <form>
+        <textarea id="message" class="mb1" minlength="2" rows="4" cols="73" placeholder="Leave a constructive message; Be Nice!" style=""></textarea><br>
+      <a class="absolute-left p button button-box-blue" type="submit" onclick="UserAction()">Submit</a>
+      </form>
+      <div>
+      <!-- <br><br>
+      <text class="f5 mid-gray">Here is what people have told about me:</text>
+      <br>Hello. -->
+      
+      </div>
+<br><br><br><br><br>
+<div class="h3 sans">FAQs</div>
+      <p class="h5 sans py1">
+      <b>What is Sarahah++?</b></br>
+      I figured out people are taking benefits of being anonymous and submitting distractful, abusing and inappropriate content many times while using Sarahah. A friend of mine got lots of abusive comments rather than constructive views. So I made this; <b>Sarahah++</b>
+      </br></br>
+
+      <b>How it's different from Sarahah?</b></br>
+      This tool performs sentimental analysis on anonymous message; if any disrespectful/ cheap/ vulgar comments found it just delete it and warn the anonymous user. Only good constructive messages survive from this and make a way to end user.
+    </br></br>
+    <b>In simple word, please.</b></br>
+    By using this tool, you'll get <b>constructive messages only</b>. All cheap &amp; dirty messages are filtered.
+    </br></br>
+
+    <b>What will be your next step?</b></br>
+    Now I'm making an addon where this tool can also click the picture of the anonymous user who's trying to submit cheap comments.
+	<br></br>
+
+    <b>If I want to find your other work...</b></br>
+      Ya, then you can browse and experiment with the stuff I made <a href="http://www.neelkadia.com/">here</a>.</br></br>
+
+      <b>What's your favourite quote?</b></br>
+      I have many and <a href="http://neelkadia.github.io/quotes.html">here</a> is the list.</br></br>
+
+      <span class="mr0"></br></br>
+            <a class="absolute-left p button button-box-blue" href="https://github.com/neelkadia/WhereaAreYou">
+            &nbsp;Fork me on Github</a>
+
+            <span class="right p button normal">
+            Made with <span style="color: #f7403a">&hearts;</span> for friends.</span>
+          </span>
+      <!-- <b>Umm, you single?</b></br>
+    <b>No,</b> I am not. I love her as many times there are atoms in the universe.
+    </br> -->
+
+    </p>
+    </section>
+    <footer id="links" class="container">
+
+  </footer>
+<script type="text/javascript">
+  
+  function UserAction() {
+    var Feedback = document.getElementById("message").value;
+    var xhr = new XMLHttpRequest();
+    var url = "http://yournodeserver.com/submitFeedback";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          var json = JSON.parse(xhr.responseText);
+          console.log(json);
+          console.log(json.Status);
+          var score = parseInt(json.Status.score);
+          var comparative = parseInt(json.Status.comparative);
+          if(score<0 && comparative<0){
+            swal("Grhhhhh", "Give me a constructive feedback. Try again", "error");
+          }else if(score>=0 && comparative==0){
+            swal("Thank you!", "Your message seems okayish; It is submitted!", "success");
+          }else if(score>=5 && comparative>0){
+              swal("Thank you!", "Your message is submitted!", "success");
+          }
+          else{
+            swal("Thank you!", "Your message is submitted!", "success");
+          }
+      }
+    };
+    var data = JSON.stringify({"Feedback": Feedback});
+    xhr.send(data);
+}
+</script>
+
+</body>
+</html>
