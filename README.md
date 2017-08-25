@@ -1,4 +1,5 @@
 # Sarahah-plus-plus
+![](https://github.com/neelkadia/Sarahah-plus-plus/blob/master/sarahah-plus-plus.png)
 
 This is an open-source version of Sarahah. *with add-ons* 
 
