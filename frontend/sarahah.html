@@ -29,7 +29,7 @@
       <!-- <br><br>
       <text class="f5 mid-gray">Here is what people have told about me:</text>
       <br>Hello. -->
-      
+
       </div>
 <br><br><br><br><br>
 <div class="h3 sans">FAQs</div>
@@ -72,9 +72,14 @@
 
   </footer>
 <script type="text/javascript">
-  
+
   function UserAction() {
     var Feedback = document.getElementById("message").value;
+    if (Feedback.trim() === "")
+    {
+      swal("Opps!", "Feedback can't be blank. Try again", "error");
+      return 0;
+    }
     var xhr = new XMLHttpRequest();
     var url = "http://yournodeserver.com/submitFeedback";
     xhr.open("POST", url, true);
