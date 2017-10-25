@@ -12,6 +12,8 @@ Tweet me @neelkadia I would love to see what's your view on this.
 ### Demo
 https://www.youtube.com/watch?v=jxbIjXxKu8M
 
+[![Youtube Video Demo](https://img.youtube.com/vi/jxbIjXxKu8M/0.jpg)](https://www.youtube.com/watch?v=jxbIjXxKu8M)
+
 ### Stack
 
 * Backend is writtern on Node.js; using MongoDb to save the responces<br />
