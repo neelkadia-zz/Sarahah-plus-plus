@@ -5,7 +5,7 @@
   "main": "server.js",
   "author": "Neel Kadia <neelkadia@gmail.com>",
   "dependencies": {
-    "body-parser": "^1.17.2",
+    "body-parser": "^1.20.1",
     "cors": "^2.8.4",
     "express": "~3.2.4",
     "json": "^9.0.6",
